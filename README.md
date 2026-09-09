@@ -101,16 +101,18 @@ scoop install qemu-9p/qemu-9p
 
 ## Build information
 
-Based on QEMU development version **11.1.50**.
+Based on the QEMU **11.1 development tree**.
+
+This build reports version **11.1.50** and is **not an official QEMU release**.
 
 Target:
 
-- Windows x86-64
-- WHPX
-- SDL
-- virtio-9p
-- `x86_64-softmmu`
-
+* Windows x86-64
+* WHPX
+* SDL
+* virtio-9p
+* `x86_64-softmmu`
+* 
 ## License
 
 QEMU is licensed under the **GNU General Public License version 2 (GPL-2.0)**.
