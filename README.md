@@ -54,6 +54,9 @@ Prebuilt Windows binaries are distributed through the accompanying Scoop bucket.
 
 The Scoop package installs this patched QEMU build without replacing the official QEMU package.
 
+<img width="1008" height="180" alt="Screenshot 2026-09-08 220251" src="https://github.com/user-attachments/assets/0eb352b3-1ef5-4001-a500-3b649261b8c1" />
+
+
 ## Build information
 
 Based on QEMU development version **11.1.50**.
