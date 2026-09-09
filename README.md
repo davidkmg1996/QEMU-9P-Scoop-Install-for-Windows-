@@ -2,7 +2,7 @@
 
 An unofficial patched Windows build of QEMU with **virtio-9p host filesystem sharing**.
 
-This project integrates existing Windows 9P support into the QEMU 11.1.50 source tree and provides a portable Windows build that can expose a Windows host directory to a Linux guest through QEMU's `virtio-9p` device.
+This project integrates existing Windows 9P support into the QEMU 11.1.1 source tree and provides a portable Windows build that can expose a Windows host directory to a Linux guest through QEMU's `virtio-9p` device.
 
 ## Download
 
