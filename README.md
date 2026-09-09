@@ -31,7 +31,6 @@ The project's original work primarily consists of:
 
 The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
 
-
 ## What is different?
 
 This project is based on prior Windows 9P work contributed to QEMU and subsequently developed in the WINQ-EMU project. The Windows 9P implementation itself is **not claimed as original work by this project**.
@@ -74,7 +73,15 @@ The Windows host directory can then be accessed from the Linux guest through 9P.
 
 The prebuilt Windows package is designed for portable use and does not require a traditional system-wide installation.
 
-This can be useful on Windows systems where users do not have administrator privileges or where installing additional software is inconvenient. The package includes the QEMU executable and required runtime dependencies in a self-contained directory.
+The package includes the QEMU executable and required runtime dependencies in a self-contained directory.
+
+For the x86-64 system emulator, launch:
+
+```text
+qemu-system-x86_64.exe
+```
+
+You can run it directly from the extracted package directory or add that directory to your `PATH`.
 
 Users should follow the policies and rules of the system or organization on which the software is used.
 
