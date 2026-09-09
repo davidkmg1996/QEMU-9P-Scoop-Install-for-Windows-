@@ -157,7 +157,7 @@ Target:
 * SDL
 * virtio-9p
 * `x86_64-softmmu`
-* 
+  
 ## License
 
 QEMU is licensed under the **GNU General Public License version 2 (GPL-2.0)**.
