@@ -20,7 +20,7 @@ The project's original work primarily consists of:
 - compiling and validating the Windows build;
 - testing Windows-host to Linux-guest 9P filesystem access in both directions; and
 - packaging and distributing the resulting build.
-- indexing scoop bucket for Windows QEMU with 9P support (previously unavailable)
+- indexing scoop bucket for Windows QEMU with Windows 9P support (previously unavailable)
 
 The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
 
@@ -29,7 +29,7 @@ The original QEMU project, WINQ-EMU project, and their respective contributors r
 
 This project is based on prior Windows 9P work contributed to QEMU and subsequently developed in the WINQ-EMU project. The Windows 9P implementation itself is **not claimed as original work by this project**.
 
-The main work in this project is integrating that existing Windows 9P implementation into the QEMU 11.1.50 source tree, resolving compatibility and source-integration issues, building it for Windows, and validating the resulting system.
+The main work in this project is integrating that existing Windows 9P implementation into the QEMU 11.1.50 source tree, resolving compatibility and source-integration issues, building it for Windows, validating the resulting system, and creating/indexing a scoop bucket which contains QEMU with Windows 9P support, which was previously unavailable.
 
 This build incorporates subsequent Windows 9P correctness fixes, including improvements to Windows extended-attribute error handling and `openat()` file-descriptor handling. During integration, additional Windows-specific adjustments were made where the Unix directory-file-descriptor model does not apply to Windows.
 
