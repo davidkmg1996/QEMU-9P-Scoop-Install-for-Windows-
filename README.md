@@ -13,9 +13,6 @@ The release includes a portable Windows build with `virtio-9p` support. No tradi
 
 ## Provenance and attribution
 
-
-## Provenance and attribution
-
 The Windows 9P implementation incorporated by this project is derived from earlier Windows 9P work in QEMU and WINQ-EMU.
 
 In particular, this project builds upon the Windows 9P porting work associated with **Bin Meng, Guohuai Shi, and the QEMU/WINQ-EMU contributors**.
