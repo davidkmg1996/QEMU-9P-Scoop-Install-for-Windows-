@@ -31,17 +31,62 @@ The project's original work primarily consists of:
 
 The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
 
-## What is different?
+## Changes made by this project
 
-This project is based on prior Windows 9P work contributed to QEMU and subsequently developed in the WINQ-EMU project. The Windows 9P implementation itself is **not claimed as original work by this project**.
+The following work was performed specifically for this project and release:
 
-This project integrates existing Windows 9P support and subsequent correctness fixes into the QEMU 11.1 development tree, resolves source compatibility issues, makes a Windows-specific build-system adjustment for portable packaging, produces and validates a portable Windows x86-64 build, and creates an indexable Scoop bucket with Windows 9P support (which was previously unavailable).
+* Integrated the existing Windows `virtio-9p` implementation and subsequent Windows 9P correctness fixes into the QEMU 11.1 development tree.
+* Resolved source compatibility and integration issues encountered while applying the Windows 9P work to this QEMU source tree.
+* Added the Windows-specific handling required where Unix directory file-descriptor behavior is not available on Windows.
+* Adjusted the Windows Meson build configuration to skip the Unix-style symlink installation step, allowing the build to be packaged as a portable Windows distribution.
+* Built the Windows x86-64 `x86_64-softmmu` target with WHPX, SDL, and `virtio-9p` support.
+* Validated `virtio-9p` host filesystem sharing between a Windows host and Linux guest.
+* Verified bidirectional file access between the Windows host directory and Linux guest.
+* Created the portable Windows distribution and packaged the required runtime dependencies.
+* Created and published the accompanying Scoop bucket and package manifest for the Windows 9P build.
 
-This build incorporates subsequent Windows 9P correctness fixes, including improvements to Windows extended-attribute error handling and `openat()` file-descriptor handling. During integration, additional Windows-specific adjustments were made where the Unix directory-file-descriptor model does not apply to Windows.
+### Original source-level integration
 
-The Windows build system was also adjusted to avoid the Unix-style symlink installation step, allowing the resulting QEMU binaries and runtime dependencies to be distributed as a portable Windows package.
+In addition to integrating the existing Windows 9P work, this project required source-level changes to make that implementation work correctly in the QEMU 11.1 development tree.
 
-The resulting build was compiled and tested with a Linux guest using QEMU's `virtio-9p-pci` device and a Windows host directory. Bidirectional file access between the Windows host and Linux guest was successfully verified.
+These included:
+
+* Resolving the `local_fid_fd()` integration for Windows in `hw/9pfs/9p-local.c`. Windows does not provide the same `dirfd()` behavior for an open `DIR *` as Unix systems, so the Windows implementation returns `ENOTSUP` for directory file-descriptor requests rather than attempting to use the Unix `dirfd()` API.
+* Resolving source compatibility issues between the imported Windows 9P implementation and the QEMU 11.1 source tree.
+* Integrating the Windows-specific filesystem, directory, error-handling, and 9P utility interfaces required by the port.
+* Integrating the Windows/Linux errno translation and Windows-specific filesystem utility code required by the implementation.
+* Incorporating and validating subsequent Windows 9P correctness fixes, including the Windows extended-attribute error handling and `openat()` file-descriptor handling.
+
+The original Windows 9P implementation itself is attributed to its respective upstream contributors; the source-level integration and compatibility work described above was performed for this project.
+
+### Build-system modification
+
+This project also includes a Windows-specific Meson build-system modification.
+
+The top-level `meson.build` was changed so that the Unix-style `symlink-install-tree.py` post-configuration step is skipped when building on Windows:
+
+```meson
+if host_machine.system() != 'windows'
+  meson.add_postconf_script(find_program('scripts/symlink-install-tree.py'))
+endif
+```
+
+This was necessary to allow the Windows build to be installed into a portable directory without relying on the Unix-style symlink installation mechanism.
+
+### Original build, validation, and packaging work
+
+This project also performed the following original release work:
+
+* Configured a Windows QEMU build with `x86_64-softmmu`, WHPX, SDL, and `virtfs`/9P support.
+* Compiled the complete Windows build successfully.
+* Verified that the resulting executable exposes the `virtio-9p` devices.
+* Tested Windows-host to Linux-guest filesystem sharing using `virtio-9p-pci`.
+* Verified bidirectional file creation, reading, and writing between the Windows host and Linux guest.
+* Identified and documented that the tested working Linux mount configuration uses `trans=virtio` without explicitly specifying `version=9p2000.L`.
+* Assembled the required Windows runtime DLL dependencies into a portable distribution.
+* Produced the portable ZIP release and its corresponding SHA-256 checksum.
+* Created the Scoop manifest and configured it to distribute the portable build as a separate `qemu-9p` package.
+
 
 This is **not an official QEMU release**.
 
