@@ -4,6 +4,26 @@ An unofficial patched Windows build of QEMU with **virtio-9p host filesystem sha
 
 This project integrates existing Windows 9P support into the QEMU 11.1.50 source tree and provides a portable Windows build that can expose a Windows host directory to a Linux guest through QEMU's `virtio-9p` device.
 
+## Provenance and attribution
+
+The Windows 9P implementation incorporated by this project is derived from earlier Windows 9P work in QEMU and WINQ-EMU.
+
+In particular, this project builds upon the Windows 9P porting work associated with **Bin Meng, Guohuai Shi, and the QEMU/WINQ-EMU contributors**.
+
+This project does **not** claim authorship of the underlying Windows 9P implementation.
+
+The project's original work primarily consists of:
+
+- integrating the existing Windows 9P work into the QEMU 11.1.50 source tree;
+- resolving source compatibility and integration issues;
+- making the Windows build-system adjustment required for portable packaging;
+- compiling and validating the Windows build;
+- testing Windows-host to Linux-guest 9P filesystem access in both directions; and
+- packaging and distributing the resulting build.
+
+The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
+
+
 ## What is different?
 
 This project is based on prior Windows 9P work contributed to QEMU and subsequently developed in the WINQ-EMU project. The Windows 9P implementation itself is **not claimed as original work by this project**.
@@ -75,25 +95,6 @@ Target:
 - SDL
 - virtio-9p
 - `x86_64-softmmu`
-
-## Provenance and attribution
-
-The Windows 9P implementation incorporated by this project is derived from earlier Windows 9P work in QEMU and WINQ-EMU.
-
-In particular, this project builds upon the Windows 9P porting work associated with **Bin Meng, Guohuai Shi, and the QEMU/WINQ-EMU contributors**.
-
-This project does **not** claim authorship of the underlying Windows 9P implementation.
-
-The project's original work primarily consists of:
-
-- integrating the existing Windows 9P work into the QEMU 11.1.50 source tree;
-- resolving source compatibility and integration issues;
-- making the Windows build-system adjustment required for portable packaging;
-- compiling and validating the Windows build;
-- testing Windows-host to Linux-guest 9P filesystem access in both directions; and
-- packaging and distributing the resulting build.
-
-The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
 
 ## License
 
