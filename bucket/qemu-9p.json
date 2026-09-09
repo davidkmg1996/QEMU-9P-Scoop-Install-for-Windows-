@@ -1,0 +1,14 @@
+{
+    "version": "11.1.50-9p1",
+    "description": "Unofficial QEMU Windows build with virtio-9p host filesystem sharing",
+    "homepage": "https://github.com/davidkmg1996/QEMU-9P-Scoop-Install-for-Windows-",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/davidkmg1996/QEMU-9P-Scoop-Install-for-Windows-/releases/download/v11.1.50-9p1/qemu-9p-win64.zip",
+            "hash": "90ae2fdf981117affd044dfe9c1999ed75b9e2234089e8782e1a3dfc6e2ca791"
+        }
+    },
+    "extract_dir": "qemu-9p-win64",
+    "env_add_path": "."
+}
