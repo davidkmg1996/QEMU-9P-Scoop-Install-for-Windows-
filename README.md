@@ -4,6 +4,16 @@ An unofficial patched Windows build of QEMU with **virtio-9p host filesystem sha
 
 This project integrates existing Windows 9P support into the QEMU 11.1.50 source tree and provides a portable Windows build that can expose a Windows host directory to a Linux guest through QEMU's `virtio-9p` device.
 
+## Download
+
+**Latest Windows x86-64 release:**
+[Download QEMU 9P for Windows](https://github.com/davidkmg1996/QEMU-9P-Scoop-Install-for-Windows-/releases/latest)
+
+The release includes a portable Windows build with `virtio-9p` support. No traditional installation is required.
+
+## Provenance and attribution
+
+
 ## Provenance and attribution
 
 The Windows 9P implementation incorporated by this project is derived from earlier Windows 9P work in QEMU and WINQ-EMU.
