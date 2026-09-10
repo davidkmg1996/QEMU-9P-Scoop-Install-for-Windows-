@@ -25,8 +25,8 @@ The project's original work primarily consists of:
 - resolving source compatibility and integration issues;
 - making the Windows build-system adjustment required for portable packaging;
 - compiling and validating the Windows build;
-- testing Windows-host to Linux-guest 9P filesystem access in both directions; and
-- packaging and distributing the resulting build.
+- testing Windows-host to Linux-guest 9P filesystem access in both directions
+- packaging and distributing the resulting build; and
 - indexing scoop bucket for QEMU with Windows 9P support (previously unavailable)
 
 The original QEMU project, WINQ-EMU project, and their respective contributors retain their applicable copyrights and attribution.
